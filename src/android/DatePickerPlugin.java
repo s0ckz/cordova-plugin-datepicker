@@ -142,7 +142,7 @@ public class DatePickerPlugin extends CordovaPlugin {
 
 						dateDialog.setCancelable(true);
 						dateDialog.setCanceledOnTouchOutside(false);
-						dateDialog.setButton(DialogInterface.BUTTON_POSITIVE, "OK", timeDialog);
+						dateDialog.setButton(DialogInterface.BUTTON_POSITIVE, "OK", dateDialog);
 						dateDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancelar", new DialogInterface.OnClickListener() {
 				            @Override
 				            public void onClick(DialogInterface dialog, int which) {
