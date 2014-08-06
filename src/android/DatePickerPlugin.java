@@ -60,7 +60,7 @@ public class DatePickerPlugin extends CordovaPlugin {
 		final Calendar c = Calendar.getInstance();
 		final Runnable runnable;
 
-		String action = "date";
+		String action = "date", doneButtonLabel = "OK", cancelButtonLabel = "Cancel";
 		long minDateLong = 0, maxDateLong = 0;
 
 		int month = -1, day = -1, year = -1, hour = -1, min = -1;
@@ -79,6 +79,9 @@ public class DatePickerPlugin extends CordovaPlugin {
 
 			minDateLong = obj.getLong("minDate");
 			maxDateLong = obj.getLong("maxDate");
+
+			doneButtonLabel = obj.getString("doneButtonLabel");
+			cancelButtonLabel = obj.getString("cancelButtonLabel");
 
 		} catch (JSONException e) {
 			e.printStackTrace();
@@ -104,8 +107,8 @@ public class DatePickerPlugin extends CordovaPlugin {
 					if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
 						timeDialog.setCancelable(true);
 						timeDialog.setCanceledOnTouchOutside(false);
-						timeDialog.setButton(DialogInterface.BUTTON_POSITIVE, "OK", timeDialog);
-						timeDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancelar", new DialogInterface.OnClickListener() {
+						timeDialog.setButton(DialogInterface.BUTTON_POSITIVE, doneButtonLabel, timeDialog);
+						timeDialog.setButton(DialogInterface.BUTTON_NEGATIVE, cancelButtonLabel, new DialogInterface.OnClickListener() {
 							@Override
 							public void onClick(DialogInterface dialog, int which) {
 								callbackContext.success("cancel");
@@ -142,8 +145,8 @@ public class DatePickerPlugin extends CordovaPlugin {
 
 						dateDialog.setCancelable(true);
 						dateDialog.setCanceledOnTouchOutside(false);
-						dateDialog.setButton(DialogInterface.BUTTON_POSITIVE, "OK", dateDialog);
-						dateDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancelar", new DialogInterface.OnClickListener() {
+						dateDialog.setButton(DialogInterface.BUTTON_POSITIVE, doneButtonLabel, dateDialog);
+						dateDialog.setButton(DialogInterface.BUTTON_NEGATIVE, cancelButtonLabel, new DialogInterface.OnClickListener() {
 				            @Override
 				            public void onClick(DialogInterface dialog, int which) {
 								callbackContext.success("cancel");
