@@ -60,7 +60,7 @@ public class DatePickerPlugin extends CordovaPlugin {
 		final Calendar c = Calendar.getInstance();
 		final Runnable runnable;
 
-		String action = "date", doneButtonLabel = "OK", cancelButtonLabel = "Cancel";
+		final String action = "date", doneButtonLabel = "OK", cancelButtonLabel = "Cancel";
 		long minDateLong = 0, maxDateLong = 0;
 
 		int month = -1, day = -1, year = -1, hour = -1, min = -1;
