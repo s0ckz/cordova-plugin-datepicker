@@ -60,7 +60,7 @@ public class DatePickerPlugin extends CordovaPlugin {
 		final Calendar c = Calendar.getInstance();
 		final Runnable runnable;
 
-		final String action = "date", doneButtonLabel = "OK", cancelButtonLabel = "Cancel";
+		String action = "date";
 		long minDateLong = 0, maxDateLong = 0;
 
 		int month = -1, day = -1, year = -1, hour = -1, min = -1;
@@ -80,8 +80,8 @@ public class DatePickerPlugin extends CordovaPlugin {
 			minDateLong = obj.getLong("minDate");
 			maxDateLong = obj.getLong("maxDate");
 
-			doneButtonLabel = obj.getString("doneButtonLabel");
-			cancelButtonLabel = obj.getString("cancelButtonLabel");
+			final String doneButtonLabel = obj.getString("doneButtonLabel");
+			final String cancelButtonLabel = obj.getString("cancelButtonLabel");
 
 		} catch (JSONException e) {
 			e.printStackTrace();
